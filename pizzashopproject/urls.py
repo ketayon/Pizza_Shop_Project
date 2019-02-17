@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pizzashop import views
+from pizzashopapp import views
 
 from django.contrib.auth.views import LoginView, LogoutView
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +30,4 @@ urlpatterns = [
         name='pizzashop-sign-out'),
 	path('pizzashop/', views.pizzashop_home, name='pizzashop-home'),
 	path('pizzashop/sign-up', views.pizzashop_sign_up, name='pizzashop-sign-up'),
-	]
+	] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
