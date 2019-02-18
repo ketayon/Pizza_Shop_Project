@@ -25,7 +25,7 @@ SECRET_KEY = '6@@d1hztetfs=i19wad4-dkg+2vmg%^stpe90*vly46df2-@x9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['shoppizza.herokuapp.com',]
 
 
 # Application definition
