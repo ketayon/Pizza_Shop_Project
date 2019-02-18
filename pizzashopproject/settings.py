@@ -25,7 +25,7 @@ SECRET_KEY = '6@@d1hztetfs=i19wad4-dkg+2vmg%^stpe90*vly46df2-@x9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shoppizza.herokuapp.com',]
+ALLOWED_HOSTS = ['shoppizza.herokuapp.com', 'localhost', '127.0.0.01']
 
 
 # Application definition
@@ -127,5 +127,10 @@ LOGIN_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
