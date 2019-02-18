@@ -74,7 +74,7 @@ body {
 	padding-right: 30px;
   }
   
-  .sidebar .list-group .list-group-item:active,
+  .sidebar .list-group .list-group-item.active,
   .sidebar .list-group .list-group-item:hover {
 	background-color: #3F1E1E;
 	color: #E0DEEB;
@@ -105,6 +105,6 @@ body {
 	padding: 0 40px;
   }
   
-  .content .panel {
+  .content .card {
 	border: none;
   }
