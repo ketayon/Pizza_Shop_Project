@@ -1,5 +1,4 @@
 """pizzashopproject URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
 Examples:
@@ -18,16 +17,23 @@ from django.urls import path
 from pizzashopapp import views
 
 from django.contrib.auth.views import LoginView, LogoutView
+
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('', views.home, name='home'),
-    path('pizzashop/sign-in/', LoginView.as_view(template_name='pizzashop/sign_in.html'), 
-		name='pizzashop-sign-in'),
-	path('pizzashop/sign-out', LogoutView.as_view(next_page='/'),
+    path('', views.home, name='home'),
+
+    path('pizzashop/sign-in/', LoginView.as_view(template_name='pizzashop/sign_in.html'),
+        name='pizzashop-sign-in'),
+    path('pizzashop/sign-out', LogoutView.as_view(next_page='/'),
         name='pizzashop-sign-out'),
-	path('pizzashop/', views.pizzashop_home, name='pizzashop-home'),
-	path('pizzashop/sign-up', views.pizzashop_sign_up, name='pizzashop-sign-up'),
-	] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('pizzashop/', views.pizzashop_home, name='pizzashop-home'),
+
+    path('pizzashop/sign-up/', views.pizzashop_sign_up, name='pizzashop-sign-up'),
+
+    path('pizzashop/account/', views.pizzashop_account, name='pizzashop-account'),
+    path('pizzashop/pizza/', views.pizzashop_pizza, name='pizzashop-pizza'),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

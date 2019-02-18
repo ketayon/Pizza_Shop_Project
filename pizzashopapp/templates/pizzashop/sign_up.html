@@ -1,22 +1,18 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Главная страница</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
-  
-</head>
-<body>
-  <h2>Страница Регистрации</h2>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ user_form.as_p }}
-    {{ pizzashop_form.as_p }}
-    <button type="submit">Зарегистрироваться</button>
-  </form>
-</body>
-</html>
+{% extends 'base_signup.html' %}
+{% load bootstrap4 %}
+
+{% block title %}Войти{% endblock %}
+
+{% block heading %}Пиццерия - страница входа!{% endblock %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h3>Владелец</h3>
+  {% bootstrap_form user_form %}
+  <h3>Пиццерия</h3>
+  {% bootstrap_form pizzashop_form %}
+  <button type="submit" class="btn btn-red float-right">Зарегистрироваться</button>
+</form>
+<a href="{% url 'pizzashop-sign-in' %}">У Вас есть профиль?</a>
+{% endblock %}
